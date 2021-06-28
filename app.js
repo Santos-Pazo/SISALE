@@ -66,7 +66,7 @@ app.use('/users', usersRouter);
 
 app.use('/', routeProd);
 app.use('/product-add', productAdd );
-app.use('/profile-edit', profileEdit );
+app.use('/', profileEdit );
 app.use('/', profile );
 app.use('/', securityRouter)
 app.use('/', resultadoBusqueda );

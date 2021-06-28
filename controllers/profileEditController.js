@@ -6,17 +6,10 @@ let op = db.Sequelize.Op;
 let profileEditController = {
     update: function(req, res) {
 
-        if(req.method == 'GET'){
-            return res.render('profile-edit',{
-                nombre: req.usuario.nombreusuario,
-                telefono: req.usuario.telefono,
-                fecha_nacimiento: req.usuario.fecha_nacimiento,     
-
-            })
-        }
+        let usuarios = db.Usuario.update(req.body)
 
         if(req.method == 'POST') {
-             let usuarios = {
+             usuarios = {
                 nombre: req.usuario.nombreusuario,
                 telefono: req.usuario.telefono,
                 fecha_nacimiento: req.usuario.fecha_nacimiento,   
@@ -29,8 +22,23 @@ let profileEditController = {
                 where: {id: req.session.user.id}
 
             })
+            .then((user_id) =>{
+                db.Usuario.findByPk(req.session.usuario.id)
+                .then(user =>{
+                    req.session.usuario = user
+                    res.redirect('/profile')
+                })
+            })
            
         }
-    }
+        if(req.method == 'GET'){
+            db.Usuario.findByPk(req.params.id)
+            .then((data) => {
+                return res.render('seguridad/profile', { 
+                    users: data,
+                });
+            })
+        }
+   }
 }
 module.exports = profileEditController

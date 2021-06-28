@@ -1,0 +1,27 @@
+<%- include('../partials/header') %>
+
+
+	<!-- Novedades -->
+	<div class="container products-wrapper">
+		<div class="row">
+			<div class="col-12">
+				<h2 class="products-title">Editar mi perfil</h2>
+			</div>
+			<!-- Show the "ultimos" products -->
+			<h2 class="col-12"> <i> 
+				<div class="row">
+				<input type="text" name="usuario" value= <% usuarios.nombreusuario %> required class= "col-12" placeholder="nombre de usuario">
+			</div>
+			<div class="row">
+				<input type="tel" name="telefono" value= required class= "col-12" placeholder="numero de telefono">
+			</div>
+			<div class="row">
+				<input type="date" name="fecha_nacimiento" value= required class= "col-12" placeholder="fecha de nacimiento">
+			</div>
+			<div class="row">
+				<input type="submit" name="confirm" value="confirm" class= "btn">
+			</div>
+		
+			
+
+<%- include('../partials/footer') %>

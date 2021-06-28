@@ -4,8 +4,8 @@ let router = express.Router();
 
 let profileEditController = require('../controllers/profileEditController');
 
-router.get('/', profileEditController.update);
-router.post('/', profileEditController.update);
+
+router.all('/:id/profile-edit', profileEditController.update);
 
 
 module.exports = router;
