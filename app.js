@@ -69,7 +69,7 @@ app.use('/product-add', productAdd );
 app.use('/profile-edit', profileEdit );
 app.use('/', profile );
 app.use('/', securityRouter)
-app.use('/resultadoBusqueda', resultadoBusqueda );
+app.use('/', resultadoBusqueda );
 app.use('/css', express.static(__dirname = 'public/stylesheets'))
 app.use('/img', express.static(__dirname = 'public/images'))
 
