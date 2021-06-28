@@ -56,17 +56,22 @@ const productsController = {
             });
 
     },
-    add: function(req, res) {
+    add: async (req, res)=> {
         if (req.method === 'POST') {
-          req.body.user_id = req.session.usuario.id;
-          if (req.body.url) req.body.image = req.body.url;
-          if (req.file) req.body.image = (req.file.destination + req.file.filename).replace('public', '');
-          db.Producto.create(req.body)
-        }
-    
-        if (req.method === 'GET') {
-          res.render('products/add');
-        }
+     let informacion = req.body;
+     await db.Producto.create({
+         usuario_id: req.session.user.id,
+         imagen: req.file.filename,
+         nombre: informacion.nombre,
+         fecha_creacion: new Date().getTime(),
+         descripcion: informacion.descripcion,
+     })}
+     if (req.method === 'GET') {
+        res.render('products/add');
+      }
+         
+
+     
       },
       delete: function(req, res, next) {
         db.Producto.destroy({ where: { id: req.params.id } })
@@ -100,16 +105,7 @@ const productsController = {
     
 
 
-      comment: (req, res)=> {
-        req.body.usuario_id = req.session.user ? req.session.user.id : 0;
-        req.body.producto_id = req.params.id;
-        db.Comentarios.create(req.body)
-          .then(() => {
-           return res.render("/products/detail")
-            
-          })
-      },
-
+     
 
 
   
