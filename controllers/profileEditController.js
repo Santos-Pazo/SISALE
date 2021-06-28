@@ -29,11 +29,7 @@ let profileEditController = {
                 where: {id: req.session.user.id}
 
             })
-            .then(() =>{
-                req.flash('Editado exitosamente')
-
-                return res.redirect('/')
-            })
+           
         }
     }
 }
