@@ -7,7 +7,7 @@ let resultadoBusquedaController = {
    search: function (req, res) {
        let criteria = req.query.search
         db.Producto.findAll({
-               where: { nombre: { [op.substring]:'%'+criteria+'%'} },// si anda con fallas el op es .like
+               where: { nombre: { [op.like]:'%'+criteria+'%'} },// si anda con fallas el op es .like
             })
             
             .then((data) => {
