@@ -26,7 +26,7 @@ let profileEditController = {
                 db.Usuario.findByPk(req.session.usuario.id)
                 .then(user =>{
                     req.session.usuario = user
-                    res.redirect('/profile')
+                    res.redirect('/profile-edit')
                 })
             })
            
@@ -34,7 +34,7 @@ let profileEditController = {
         if(req.method == 'GET'){
             db.Usuario.findByPk(req.params.id)
             .then((data) => {
-                return res.render('seguridad/profile', { 
+                return res.render('seguridad/profile-edit', { 
                     users: data,
                 });
             })

@@ -8,19 +8,24 @@
 				<h2 class="products-title">Editar mi perfil</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
+			<form action="/<% users.id%>/profile-edit" method="POST" class="product-search">
 			<h2 class="col-12"> <i> 
 				<div class="row">
-				<input type="text" name="usuario" value= <% usuarios.nombreusuario %> required class= "col-12" placeholder="nombre de usuario">
+					<h2>Nombre de usuario:</h2>
+				<input type="text" name="usuario" value= <% users.nombreusuario %> required class= "col-12" placeholder="nombre de usuario">
 			</div>
 			<div class="row">
+				<h2>Numero de telefono:</h2>
 				<input type="tel" name="telefono" value= required class= "col-12" placeholder="numero de telefono">
 			</div>
 			<div class="row">
+				<h2>Fecha de nacimiento:</h2>
 				<input type="date" name="fecha_nacimiento" value= required class= "col-12" placeholder="fecha de nacimiento">
 			</div>
 			<div class="row">
-				<input type="submit" name="confirm" value="confirm" class= "btn">
-			</div>
+				<input type="submit" name="confirm" value="confirm" class= "btn" size="100px">
+		    </div>
+		    </form>
 		
 			
 
